@@ -1,5 +1,3 @@
-import sys
-sys.path.append('../queue_and_stack')
 from dll_queue import Queue
 from dll_stack import Stack
 
@@ -9,22 +7,59 @@ class BinarySearchTree:
         self.value = value
         self.left = None
         self.right = None
+        self.root = None
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+
+        # Check if node is empty
+        if self.value is None:
+            self.value = value
+        else:
+            # check if value is less than node
+            if value < self.value:
+                # set the current node to the left node
+                if self.left is None:
+                    self.left = BinarySearchTree(value)
+                else:
+                    # repeat
+                    self.left.insert(value)
+            elif value >= self.value:
+                # set the current node to the right node
+                if self.right is None:
+                    self.right = BinarySearchTree(value)
+                else:
+                    self.right.insert(value)
 
     # Return True if the tree contains the value
     # False if it does not
+
     def contains(self, target):
+        # if node is none
+        # return false
+        # if node.value == findvalue
+        # return true
+        # else
+        # if find <  node.value
+        # find on  left node
+        # else
+        # find on right node
         pass
 
     # Return the maximum value found in the tree
     def get_max(self):
         pass
+        # max_val = self.value
+        # # if there's a right:
+        # if self.right:
+        #     # get max on  right
+        #     max_val = self.right
+        # else:
+        #     # return node.value
+        #     return max_val
 
-    # Call the function `cb` on the value of each node
-    # You may use a recursive or iterative approach
+        # Call the function `cb` on the value of each node
+        # You may use a recursive or iterative approach
     def for_each(self, cb):
         pass
 
