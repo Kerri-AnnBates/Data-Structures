@@ -34,11 +34,6 @@ class BinarySearchTree:
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
-        # if node is none
-        if self.value is None:
-            # return false
-            return False
-
         # if node.value == findvalue
         if self.value == target:
             # return true
@@ -92,11 +87,25 @@ class BinarySearchTree:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        pass
+        # Go L -> print N -> Go R
+        if node is None:
+            return
+
+        if node.left:
+            node.left.in_order_print(node.value)
+
+        if node.right:
+            node.right.in_order_print(node.value)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
+
     def bft_print(self, node):
+        # put root/node on the stack
+        stack = Stack()
+
+        stack.push(self.value)
+        # pop it of, then put it's children on the stack and pop each off.
         pass
 
     # Print the value of every node, starting with the given node,
