@@ -72,10 +72,24 @@ class BinarySearchTree:
         max_val = self.right.value
         return self.right.get_max()
 
-        # Call the function `cb` on the value of each node
-        # You may use a recursive or iterative approach
+    # Call the function `cb` on the value of each node
+    # You may use a recursive or iterative approach
+
     def for_each(self, cb):
-        pass
+        # 1. Visit the root.
+        # run the cb function on the value
+        cb(self.value)
+
+        if self.left is None and self.right is None:
+            return
+
+        # 2. Traverse the left subtree, i.e., call Preorder(left-subtree)
+        if self.left is not None:
+            return self.left.for_each(cb)
+
+        # 3. Traverse the right subtree, i.e., call Preorder(right-subtree)
+        if self.right is not None:
+            return self.right.for_each(cb)
 
     # DAY 2 Project -----------------------
 
