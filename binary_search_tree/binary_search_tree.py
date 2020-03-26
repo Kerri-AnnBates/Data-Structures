@@ -77,19 +77,15 @@ class BinarySearchTree:
 
     def for_each(self, cb):
         # 1. Visit the root.
-        # run the cb function on the value
+        # # run the cb function on the value
         cb(self.value)
 
-        if self.left is None and self.right is None:
-            return
-
-        # 2. Traverse the left subtree, i.e., call Preorder(left-subtree)
-        if self.left is not None:
-            return self.left.for_each(cb)
-
-        # 3. Traverse the right subtree, i.e., call Preorder(right-subtree)
-        if self.right is not None:
-            return self.right.for_each(cb)
+        # 2. Traverse the left subtree
+        if self.left:
+            self.left.for_each(cb)
+        # 3. Traverse the right subtree
+        if self.right:
+            self.right.for_each(cb)
 
     # DAY 2 Project -----------------------
 
